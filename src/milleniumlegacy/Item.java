@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Item {
 	
-		public static final Map<Integer, String[]> items;
+		public static final HashMap<Integer, String[]> items;
 		static 
 		{
 		//Putting items
