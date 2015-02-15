@@ -25,6 +25,10 @@ public class KeyManager implements KeyListener
 		{
 			MainGame.right = true;
 		}
+		if (e.getKeyCode() == KeyEvent.VK_SPACE)
+		{
+			
+		}
 	}
 
 	@Override

@@ -17,12 +17,12 @@ public class Algorithm {
 			String[] Craftable = Item.items.get(i);
 			String Craft1 = Craftable[4];
 			String Craft2 = Craftable[5];
-			if ((Craft1.equals(Name1) || Craft2.equals(Name2)) && 
+			/*if ((Craft1.equals(Name1) || Craft2.equals(Name2)) && 
 					(Craft1.equals(Name2) || Craft2.equals(Name1))) {
 				String[] getNewItem = Item.items.get(i);
 				//TODO
 				
-			}
+			}*/
 		}
 		int rand = (int)(Math.random() * (100));
 		int Prob = rand;

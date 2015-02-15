@@ -8,7 +8,7 @@ public class Map
 	public static ArrayList<Tile> readyMap()
 	{
 		ArrayList<Tile> tiles = new ArrayList<Tile>();
-		char[][] map = ml.LoadMap("map.txt");
+		char[][] map = ml.LoadMap("resources/maps/map.txt");
 		int countery = 0, counterx = 0;
 		for (char[] chararr : map)
 		{

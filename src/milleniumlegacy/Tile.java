@@ -18,14 +18,25 @@ public class Tile
 	}
 	public void Render(Graphics g, int offsetx, int offsety)
 	{
-		if (terrain == 'g')
+		if (terrain == 'd')
 		{
 			g.setColor(Color.GREEN);
 		}
+		else if (terrain == 'r')
+		{
+			g.setColor(Color.DARK_GRAY);
+		}
+		else if (terrain == 'c')
+		{
+			g.setColor(Color.gray);
+		}
 		else
 		{
-			g.setColor(Color.BLUE);
+			g.setColor(Color.blue);
 		}
-		g.fillRect(x*16 + offsetx, y*16 + offsety, 16,16);
+		g.fillRect(x*32 + offsetx - 32, y*32 + offsety - 32, 32,32);
+		String draw = "x" + x + "y" + y;
+		g.setColor(Color.black);
+		g.drawString(draw, x*32 + offsetx - 32, y*32 + 8 + offsety - 32);
 	}
 }
