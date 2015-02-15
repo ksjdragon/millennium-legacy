@@ -1,35 +1,60 @@
 package milleniumlegacy;
 
+public class Algorithm
+{
 
-public class Algorithm {
-	
-	public static String research() {
-		String[] pSelect1 = Item.items.get(1); //1 = player input
-		String[] pSelect2 = Item.items.get(2); //2 = second player input
+	public static void research(int pSelect1, int pSelect2)
+	{	
 		Object[] keyArray = Item.items.keySet().toArray();
-		String Num1 = pSelect1[0];
-		String Num2 = pSelect2[0];
-		String Name1 = pSelect1[1];
-		String Name2 = pSelect2[1];
-		String TP1 = pSelect1[2];
-		String TP2 = pSelect2[2];
-		for(int i = 1; i <= keyArray.length;i++) {
-			String[] Craftable = Item.items.get(i);
-			String Craft1 = Craftable[4];
-			String Craft2 = Craftable[5];
-			/*if ((Craft1.equals(Name1) || Craft2.equals(Name2)) && 
-					(Craft1.equals(Name2) || Craft2.equals(Name1))) {
-				String[] getNewItem = Item.items.get(i);
-				//TODO
-				
-			}*/
+		for (int i = 1; i <= keyArray.length; i++)
+		{
+			String[] Craftable = (String[])Item.items.get(i);
+			int Craft1int = Integer.parseInt(Craftable[4]);
+			int Craft2int = Integer.parseInt(Craftable[6]);
+			int rand = (int) (Math.random() * (100));
+			int Prob = rand;
+			if ((Craft1int == pSelect1 || Craft1int == pSelect2) &&
+					(Craft2int == pSelect1 || Craft2int == pSelect2))
+			{
+				String[] requisite = (String[]) Item.items.get(i);
+				int current1 = Inventory.inventory.get(pSelect1);
+				int current2 = Inventory.inventory.get(pSelect2);
+				int requisite1 = Integer.parseInt(requisite[3]);
+				int requisite2 = Integer.parseInt(requisite[5]);
+				if ((current1 >= requisite1 && current2 >= requisite2) )
+				{
+					if ((current1 -= requisite1) <= 0)
+					{
+						Inventory.inventory.remove(pSelect1);
+						Research.squareOffset+=2;
+					}
+					else{
+						Inventory.inventory.put(pSelect1, current1 -= requisite1);
+					}
+				if ((current2 -= requisite2) <= 0)
+				{
+					Inventory.inventory.remove(pSelect2);
+					Research.squareOffset+=2;
+				}
+				else{
+					Inventory.inventory.put(pSelect2, current2 -= requisite2);
+				}
+				int craftability = Integer.parseInt(requisite[2]);
+				if (Prob <= craftability)
+				{
+						int outputnum = Integer.parseInt(requisite[7]);
+						Inventory.addItem(i, outputnum);
+						break;
+				} else {
+					break;
+					}
+				} else {
+					break;
+				}
+			
+			} 
 		}
-		int rand = (int)(Math.random() * (100));
-		int Prob = rand;
-		
-		return Name2;
-	}
-	
 
+	}
 
 }

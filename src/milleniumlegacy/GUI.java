@@ -1,19 +1,23 @@
 package milleniumlegacy;
 
 
-import java.awt.Component;
-import java.awt.Graphics;
-import java.util.HashMap;
+import java.io.IOException;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+import javax.swing.WindowConstants;
 
 public class GUI {
-
+	public static JFrame f;
 	public static void main(String[] args) {
-
-				Algorithm.research();
-				
+		try
+		{
+			Process process = new ProcessBuilder("WorldGenerator.exe","","").start();
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();
@@ -23,7 +27,7 @@ public class GUI {
 	}
 	public static void createAndShowGUI()
 	{
-		JFrame f = new JFrame("Millenium Legacy");
+		f = new JFrame("Millenium Legacy");
 		MainGame  draw = new MainGame();
 		f.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		f.getContentPane().add(draw);

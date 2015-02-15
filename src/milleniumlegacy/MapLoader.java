@@ -27,10 +27,8 @@ public class MapLoader {
 			char[][] maparr = new char[lines.size()][lines.get(0).toCharArray().length];
 			for (int y = 0; y <= lines.size() - 1; y++)
 			{
-				char[] chararr = lines.get(y).toCharArray();
 				for (int x = 0; x <= lines.get(0).toCharArray().length - 1; x++)
 				{
-					System.out.println("X: " + x + "Y: " + y);
 					maparr[y][x] = lines.get(y).toCharArray()[x];
 				}
 			}

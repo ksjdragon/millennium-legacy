@@ -11,7 +11,7 @@ public class ImageLoader
 	public BufferedImage loadImage (String path)
 	{
 		try {
-			BufferedImage bi = ImageIO.read(new FileInputStream("resources/sprites/player.png"));
+			BufferedImage bi = ImageIO.read(new FileInputStream(path));
 			return bi;
 		} catch (IOException e) {
 			System.out.println("Error loading Image");

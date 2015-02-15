@@ -4,23 +4,27 @@ import java.util.ArrayList;
 
 public class Map 
 {
+	static ImageLoader IL = MainGame.IL;
+	
 	static MapLoader ml = new MapLoader();
-	public static ArrayList<Tile> readyMap()
+	public static Tile[][] readyMap()
 	{
-		ArrayList<Tile> tiles = new ArrayList<Tile>();
-		char[][] map = ml.LoadMap("resources/maps/map.txt");
+		Tile[][] mappp;
+		ArrayList<ArrayList<Tile>> tilesy = new ArrayList<ArrayList<Tile>>();
+		ArrayList<Tile> tilesx = new ArrayList<Tile>();
+		char[][] map = ml.LoadMap("milleniumWorld.txt");
+		mappp = new Tile[map.length][map[0].length];
 		int countery = 0, counterx = 0;
 		for (char[] chararr : map)
 		{
-			countery++;
 			for (char c: chararr)
 			{
+				mappp[counterx][countery] = new Tile(counterx, countery, c, IL);
 				counterx++;
-				System.out.println(counterx);
-				tiles.add(new Tile(counterx, countery, c));
 			}
+			countery++;
 			counterx = 0;
 		}
-		return tiles;
+		return mappp;
 	}
 }

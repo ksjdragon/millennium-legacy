@@ -27,7 +27,19 @@ public class KeyManager implements KeyListener
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE)
 		{
-			
+			MainGame.getPlayer().Add();
+		}
+		if (e.getKeyCode() == KeyEvent.VK_R){
+			if (Research.shouldRender)
+			{
+				Research.shouldRender = false;
+				Inventory.shouldRender = true;
+			}
+			else
+			{
+				Research.shouldRender = true;
+				Inventory.shouldRender = false;
+			}
 		}
 	}
 
